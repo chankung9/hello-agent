@@ -1,6 +1,6 @@
 # hello-agent Frontend MVP
 
-Animated "HelloWord" demo used to validate Codex-Agent ↔ downstream workflow.
+Animated "HelloWorld" demo used to validate Codex-Agent ↔ downstream workflow.
 
 ## Run Locally
 ```bash

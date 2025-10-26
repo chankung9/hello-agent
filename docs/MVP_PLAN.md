@@ -12,7 +12,7 @@
 1. Documented workflow for syncing plans between repos.
 2. Definition of reporting cadence (weekly product review, monthly finance snapshot).
 3. HR inclusion guidelines for performance tracking and staffing.
-4. **Reference implementation:** Web frontend demo that renders "HelloWord" centered on screen with animated letters that move/bounce when hitting viewport edges (see Example Deliverable below).
+4. **Reference implementation:** Web frontend demo that renders "HelloWorld" centered on screen with animated letters that move/bounce when hitting viewport edges (see Example Deliverable below).
 
 ### Out-of-Scope (MVP)
 - Automated deployment or bot-driven synchronization.
@@ -49,7 +49,7 @@
 | B. Doc Sync Validation | Ensure bidirectional sync between `codex-agent` HQ and the hello-agent repo. | Follow `projects/hello-agent/docs/DOC_SYNC_CHECKLIST.md`, log evidence in audit file. | Engineer Agent | Checklist operational with helper script `projects/hello-agent/scripts/doc_sync_diff.sh`; last run logged 2025-10-25 10:30 UTC. |
 | C. Reporting Alignment | Map MVP metrics to finance + release reporting templates. | Update `reports/` summaries, confirm gates in `pipeline.yaml`. | Product & Finance Agents | Baseline mapping completed 2025-10-25; see `reports/README.md` “hello-agent MVP Reporting Alignment”. |
 | D. HR & Compliance Tracking | Keep staffing/performance notes and compliance hooks current. | Update HR prompt/logs, align with `docs/RELEASE_CHECKLIST.md`. | HR & Compliance Agents | Addendum for hello-agent MVP appended to `docs/RELEASE_CHECKLIST.md`; tracking call-outs logged 2025-10-25. |
-| E. Frontend Prototype | Build and verify the HelloWord animation demo (see Example Deliverable). | Design UX, select tech stack, implement animation, capture test evidence | Engineer Agent | Pending — requires downstream repo implementation |
+| E. Frontend Prototype | Build and verify the HelloWorld animation demo (see Example Deliverable). | Design UX, select tech stack, implement animation, capture test evidence | Engineer Agent | Pending — requires downstream repo implementation |
 
 ## 7. Architecture Overview (Engineer-owned)
 - **Client Application:** Single-page web frontend (HTML/CSS/JavaScript or preferred framework) hosted from the hello-agent repo. No backend dependencies for MVP.
@@ -58,10 +58,10 @@
 - **Build/Tooling:** Use a minimal bundler (Vite/Parcel/Rollup) or plain ES modules. Decisions reside solely with the Engineer Agent; document the toolchain in the downstream repo README.
 - **Testing & Evidence:** Provide a simple playwright/cypress or manual checklist verifying the animation plus capture a short recording (GIF/video) for reports.
 
-## 8. Example Deliverable — HelloWord Frontend
+## 8. Example Deliverable — HelloWorld Frontend
 - **Goal:** Provide a concrete test artifact to prove the MVP workflow can deliver working software.
 - **Requirements:**
-  1. Web frontend displaying the string **"HelloWord"** centered on the screen.
+  1. Web frontend displaying the string **"HelloWorld"** centered on the screen.
   2. Each letter animates, moving across the viewport and bouncing in the opposite direction whenever it hits a screen edge.
   3. Implementation details (framework choice, animation technique) decided solely by the Engineer Agent to maintain clear ownership.
   4. Include README/test notes describing how reviewers can run the demo and observe the bouncing behavior.
