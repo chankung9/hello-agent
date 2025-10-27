@@ -1,7 +1,10 @@
 :root {
   font-family: 'Space Grotesk', sans-serif;
-  background-color: #0f172a;
-  color: #f8fafc;
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --accent-color: #38bdf8;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 body,
@@ -16,8 +19,133 @@ html {
 #app {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 canvas {
   display: block;
+}
+
+.color-controls {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.color-button {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 999px;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.color-button:hover,
+.color-button:focus-visible {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.color-button::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 120%;
+  right: 50%;
+  transform: translateX(50%);
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.color-button:hover::after,
+.color-button:focus-visible::after {
+  opacity: 1;
+}
+
+.color-popover {
+  position: fixed;
+  top: 4.1rem;
+  right: 1rem;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 12rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+.color-popover.is-visible {
+  display: flex;
+}
+
+.color-popover__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(248, 250, 252, 0.8);
+}
+
+.color-popover__input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.color-popover__value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.contrast-warning {
+  margin-left: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(248, 113, 113, 0.18);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #fee2e2;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: none;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.contrast-warning.is-visible {
+  display: inline-flex;
+}
+
+.contrast-warning svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: currentColor;
 }
